@@ -10,7 +10,7 @@
     align-items: center;
     justify-content: center;
     margin-left: 500px;
-    height: 700px;
+    height: 750px;
     width: 500px;
     padding: 50px;
     background: #000988;
@@ -47,9 +47,13 @@
     font-weight: 500;
 }
 .img{
-    height: 120px;
-    width: 120px;
+    margin-top: 20px;
+    margin-left: 100px;
+    height: 200px;
+    width: 210px;
     padding: 30px;
+    background: #faf8f8;
+    border-radius: 50px;
 }
 /* details */
 .details{
@@ -62,4 +66,7 @@
     padding: 10px;
     background: #0a365a;
     color: #fdfcfc;
+}
+.error{
+    display: none;
 }

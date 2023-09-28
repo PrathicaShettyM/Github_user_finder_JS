@@ -24,16 +24,39 @@
 
         </div>
         <div class="details">
-            <p id="label">Name:<p id="name"></p></p>
+            <p class="error">Error</p>
+            <p id="label">Name:<p class="name"></p></p>
             <p id="label">Location:<p id="location"></p></p>
-            <p id="label">Portfolio:<p id="portfolio"></p></p>
+            <p id="label">Portfolio:<p class="portfolio"></p></p>
             <p id="label">Public Repos:<p id="P-repo"></p></p>
             <p id="label">Followers:<p id="followers"></p></p>
             <p id="label">Bio:<p id="bio"></p></p>        
         </div>
     </div>
     <script>
+        const APIurl = "https://api.github.com/users";
 
+        const searchBox = document.querySelector("#inputBox");
+        const searchBtn = document.querySelector("#btn");
+
+        async function checkProfile(user){
+            const response = await fetch(APIurl);
+
+            if(response.status == 404){
+                document.querySelector(".error").style.display = "block";
+            }
+            else{
+                var data = await response.json();
+                console.log(data);
+                document.querySelector(".name").innerHTML = data.login;
+                console.log(data.login);
+                document.querySelector(".portfolio").innerHTML = data.url;
+                console.log(data.url);
+            }
+        }
+        searchBtn.addEventListener("click", () => {
+            checkProfile(searchBox.value)
+        })
     </script>
 </body>
 </html>
