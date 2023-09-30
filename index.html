@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GitHub User Finder | JavaScript</title>
+    <title>GitHub User Finder | Github API</title>
    
     <!-- linking CSS file -->
     <link rel="stylesheet" href="./style.css">
@@ -15,47 +15,43 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="profile-card">
-        <div class="search-bar">
-            <input type="text" placeholder="Enter User Name" id="inputBox">
-            <button id="btn">Get Profile</button>
+    <div class="card">
+        <div class="container">
+            <h1>Github Profile Finder</h1>
         </div>
-        <div class="img">
+        <form id="form">
+            <div class="form-grp">
+                <input type="text" id="search" placeholder="Enter User Name">
+                <button>Search</button>
+            </div>
+            </form>
+    </div> 
+    <div id="detail">       
 
-        </div>
-        <div class="details">
-            <p class="error">Error</p>
-            <p id="label">Name:<p class="name"></p></p>
-            <p id="label">Location:<p id="location"></p></p>
-            <p id="label">Portfolio:<p class="portfolio"></p></p>
-            <p id="label">Public Repos:<p id="P-repo"></p></p>
-            <p id="label">Followers:<p id="followers"></p></p>
-            <p id="label">Bio:<p id="bio"></p></p>        
-        </div>
-    </div>
+    </div>  
     <script>
-        const APIurl = "https://api.github.com/users";
+        var form = document.getElementById("form");
+        form.addEventListener("click", function (e){
+            e.preventDefault()
 
-        const searchBox = document.querySelector("#inputBox");
-        const searchBtn = document.querySelector("#btn");
+            var search = document.getElementById("search").value
+            
+            var originalName = search.split(' ').join('')
 
-        async function checkProfile(user){
-            const response = await fetch(APIurl);
+            fetch("https://api.github.com/users/"+ originalName)
+            .then((result) => result.json())
+            .then((data) => {
+                console.log(data)
+            })
 
-            if(response.status == 404){
-                document.querySelector(".error").style.display = "block";
-            }
-            else{
-                var data = await response.json();
-                console.log(data);
-                document.querySelector(".name").innerHTML = data.login;
-                console.log(data.login);
-                document.querySelector(".portfolio").innerHTML = data.url;
-                console.log(data.url);
-            }
-        }
-        searchBtn.addEventListener("click", () => {
-            checkProfile(searchBox.value)
+            document.getElementById("detail").innerHTML = `
+            <img src="${data.avatar_url}"/>
+                <h2>${data.name}</h2>
+                <h2>${data.bio}</h2>
+                <h2>${data.followers}</h2>
+                <h2>${data.name}</h2>
+                <h2>${data.name}</h2> 
+            `
         })
     </script>
 </body>

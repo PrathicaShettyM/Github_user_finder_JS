@@ -1,72 +1,45 @@
-*{
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
-/* profile card */
-.profile-card{
+.container h1{
+    margin-top: 25px;
+    text-align: center;
+    color: rgb(6, 5, 5);
+}
+.form-grp{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 500px;
-    height: 750px;
-    width: 500px;
-    padding: 50px;
-    background: #000988;
-    color: blue;
-    display: block;
-    align-items: center;
-    justify-content: center;
+    margin-top: 20px;
+    padding: 4px;
+    background: rgb(22, 252, 1);
+    margin-left: 20%;
+    margin-right: 25%;
 }
-/* search bar */
-.search-bar{
-    padding: 5px 5px;
-    background: #fdfcfc;
-    border-radius: 30px;
-}
-.search-bar input{
-    margin-left: 20px;
-    height: 38px;
+.form-grp input{
+    height: 30px;
     width: 60%;
+    padding: 0 20px;
     border: 0;
-    padding: 10px;
+}
+.form-grp button{
+    margin-left: 20px;
+    padding: 6px 40px;
+    border: 2px solid rgb(22, 252, 1);
+    color: rgb(22, 252, 1);
+    background: white;
+}
+.form-grp button:hover{
+    background: rgb(22, 252, 1);
+    border: 2px solid rgb(22, 252, 1);
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
     font-size: 17px;
 }
-.search-bar button{
-    float: right;
-    background: rgb(249, 250, 249);
-    color: rgb(46, 251, 5);
-    border: 3px solid rgb(46, 251, 5);
-    border-radius: 20px;
-    padding: 9px 21px;
-}
-.search-bar button:hover{
-    background: rgb(58, 247, 6);
-    color: white;
-    font-weight: 500;
-}
-.img{
-    margin-top: 20px;
-    margin-left: 100px;
-    height: 200px;
-    width: 210px;
-    padding: 30px;
-    background: #faf8f8;
-    border-radius: 50px;
-}
-/* details */
-.details{
-    margin: 20px;
-    padding-top: 30px;
-    font-size: 20px;
-}
-#label{
-    margin-bottom: 20px;
-    padding: 10px;
-    background: #0a365a;
-    color: #fdfcfc;
-}
-.error{
-    display: none;
-}
+#details{
+    color: antiquewhite;
+} */
